@@ -55,7 +55,7 @@ namespace ground_services_manager
                         this.BackColor = Color.Orange;
                         break;
                     case "Error":
-                        this.BackColor = Color.PaleVioletRed;
+                        this.BackColor = Color.Red;
                         break;
                     case "Important":
                         this.BackColor = Color.PaleVioletRed;

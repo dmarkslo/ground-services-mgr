@@ -44,11 +44,13 @@
             // 
             // liveryPB
             // 
+            this.liveryPB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.liveryPB.Location = new System.Drawing.Point(0, 0);
             this.liveryPB.Name = "liveryPB";
             this.liveryPB.Size = new System.Drawing.Size(200, 600);
             this.liveryPB.TabIndex = 1;
             this.liveryPB.TabStop = false;
+            this.liveryPB.Click += new System.EventHandler(this.liveryPB_Click);
             this.liveryPB.MouseEnter += new System.EventHandler(this.liveryPictureBox_MouseEnter);
             this.liveryPB.MouseLeave += new System.EventHandler(this.liveryPictureBox_MouseLeave);
             // 

@@ -22,7 +22,7 @@ namespace ground_services_mgr_pmdg
             InitializeComponent();
         }
 
-        string communityPath = "";
+        string communityPath = ""; // get from user input.
         string fileName = "community_path.txt";
         string pathRoot = "\\pmdg-aircraft-737\\SimObjects\\Misc";
         string storagePath = "skins";
@@ -47,11 +47,11 @@ namespace ground_services_mgr_pmdg
 
             // Event Handler for notific click
             notifCommunityPathNotFound.Click += new EventHandler(notif_Click);
-            // Add notifications to panel
+            // Add standby notifications to panel
             this.Controls.Add(notifCommunityPathNotFound);
             this.Controls.Add(notifCommunityPathFound);
 
-            // Start
+            // If communityPath is empty, ask user for communityPath input.
             if (!CommunityPathExists())
                 notifCommunityPathNotFound.Push();        
 
@@ -79,15 +79,9 @@ namespace ground_services_mgr_pmdg
             catch (Exception ex)
             {
                 Notification exception = new Notification("Error", ex.Message, false);
+                this.Controls.Add(exception);
                 exception.Push();
             }
-
-            if (CommunityPathExists())
-                notifCommunityPathFound.Push();
-
-        }
-        private void Notif_Click()
-        {
 
         }
         private void CreatePathSaveFile()
@@ -103,8 +97,7 @@ namespace ground_services_mgr_pmdg
             {
                 try
                 {
-                    // Create an instance of StreamReader to read from a file.
-                    // The using statement also closes the StreamReader.
+                    // Read from file. Streamreader closes automatically.
                     using (StreamReader sr = new StreamReader(fileName))
                     {
                         string line;
